@@ -12,12 +12,6 @@ def crop(image):
     image_cropped=image[50:h-100,50:w-50:]
     return image_cropped
 
-def resize(im, width, height):
-    if not isinstance(im, np.ndarray):
-        im = np.array(im)
-        
-    return cv2.resize(im, (width, height))
-
 def square_resize(im):
     height, width = get_dimensions(im)
     
