@@ -1,1 +1,1 @@
-__all__ = ["loadFunc", "basic_manipulation"]
+__all__ = ["loadFunc", "basic_manipulation", "thresholding"]

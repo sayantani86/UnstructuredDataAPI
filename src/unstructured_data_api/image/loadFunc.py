@@ -21,6 +21,11 @@ def loadWithOpenCV(image_path):
     
     return cv2.imread(image_path)
 
+def loadImageInGrayScale(image_path):
+    """Load image in Grayscale as numpy array"""
+    
+    return cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+
 def loadWithPIL(image_path):
     """Image is in RGB color space"""
     
