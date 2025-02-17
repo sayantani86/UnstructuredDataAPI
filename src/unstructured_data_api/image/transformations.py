@@ -48,7 +48,7 @@ def drawContours(img, contours, contour_num=-1):
     """
     
     if contour_num != -1:
-        return cv2.drawContours(img, contours[contour_num], contour_num, (0,255,0), 3)
+        return cv2.drawContours(img, [contours[contour_num]], contour_num, (0,255,0), 3)
     
     return cv2.drawContours(img, contours, contour_num, (0,255,0), 3)
 
