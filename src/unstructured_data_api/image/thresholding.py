@@ -9,7 +9,7 @@ def thresh_global(im, threshold=127):
         
     return cv2.threshold(im, threshold, 255, cv2.THRESH_BINARY)
 
-def thresh_binaryInv(im, threshold=127):
+def thresh_binary_inv(im, threshold=127):
     """Image has to be in gray scale"""
     
     if not isinstance(im, np.ndarray):
@@ -48,13 +48,29 @@ def thresh_adaptive_mean(im):
         
     return cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY,11,2)
 
+def thresh_adaptive_mean_binary_inv(im):
+    """Image has to be in gray scale"""
+    
+    if not isinstance(im, np.ndarray):
+        im = np.array(im)
+        
+    return cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV,11,2)
+
 def thresh_adaptive_gaussian(im):
     """Image has to be in gray scale"""
     
     if not isinstance(im, np.ndarray):
         im = np.array(im)
         
-    return cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
+    return cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11,2)
+
+def thresh_adaptive_gaussian_binary_inv(im):
+    """Image has to be in gray scale"""
+    
+    if not isinstance(im, np.ndarray):
+        im = np.array(im)
+        
+    return cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11,2)
 
 def thresh_otsu(im):
     """Image has to be in gray scale"""
