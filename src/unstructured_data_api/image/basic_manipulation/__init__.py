@@ -1,1 +1,1 @@
-__all__ = ["change_color_space", "scaling", "crop"]
+__all__ = ["change_color_space", "scaling", "crop", "image_to_text"]

@@ -26,8 +26,7 @@ def drawContours(img, contours, contour_num=-1):
     img: Original image
     """
     
-    transformed_image = img.copy()
-    cv2.drawContours(transformed_image, contours, contour_num, (0,255,0), 3)
+    cv2.drawContours(img, contours, contour_num, (0,255,0), 3)
     
-    return transformed_image
+    return img
 

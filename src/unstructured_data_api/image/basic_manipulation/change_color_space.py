@@ -1,4 +1,5 @@
 import numpy as np
+import cv2
 
 """This module converts teh color space of an image whoch is helpful for tasks like thresholding, edge detection, and object tracking"""
 
