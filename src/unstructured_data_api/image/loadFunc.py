@@ -30,17 +30,17 @@ def loadPDF(path_or_bytes, output_folder=None):
     return images
 
 def loadWithOpenCV(image_path):
-    """Load image as numpy array.The image is in the BGR color space"""
+    "Load image as numpy array.The image is in the BGR color space"
     
     return cv2.imread(image_path)
 
 def loadImageInGrayScale(image_path):
-    """Load image in Grayscale as numpy array"""
+    "Load image in Grayscale as numpy array"
     
     return cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 
 def loadWithPIL(image_path):
-    """Image is in RGB color space"""
+    "Image is in RGB color space"
     
     try:
         with Image.open(image_path) as img:
