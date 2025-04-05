@@ -3,7 +3,7 @@ from pdf2image import convert_from_path, convert_from_bytes
 import cv2
 from PIL import Image
 
-def loadPDF(path_or_bytes, output_folder=None):
+def loadPDFInGrayScale(path_or_bytes, output_folder=None):
     if not path.exists(output_folder):
         makedirs(output_folder)
     
@@ -16,18 +16,31 @@ def loadPDF(path_or_bytes, output_folder=None):
             
     return images
 
+def loadPDF(path_or_bytes, output_folder=None):
+    if not path.exists(output_folder):
+        makedirs(output_folder)
+    
+    images = []
+    
+    try:
+        images = convert_from_bytes(open(path_or_bytes, "rb").read(), use_pdftocairo=True, output_folder=output_folder)
+    except Exception as e:
+        images = convert_from_path(path_or_bytes, use_pdftocairo=True, output_folder=output_folder)
+            
+    return images
+
 def loadWithOpenCV(image_path):
-    """Load image as numpy array.The image is in the BGR color space"""
+    "Load image as numpy array.The image is in the BGR color space"
     
     return cv2.imread(image_path)
 
 def loadImageInGrayScale(image_path):
-    """Load image in Grayscale as numpy array"""
+    "Load image in Grayscale as numpy array"
     
     return cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 
 def loadWithPIL(image_path):
-    """Image is in RGB color space"""
+    "Image is in RGB color space"
     
     try:
         with Image.open(image_path) as img:
